@@ -135,38 +135,10 @@ export const AuthProvider = (props: AuthProviderProps) => {
       }
     };
 
-    // initialize();
-    dispatch({
-      type: 'INITIALIZE',
-      payload: {
-        isAuthenticated: false,
-        user: null,
-      },
-    });
+    initialize();
   }, []);
 
-  const login = async (email: string, password: string) => {
-    // try {
-    //   const response = await axios.post<{
-    //     authStatus: boolean;
-    //     session: string | null;
-    //     text: string | null;
-    //   }>('/mock/auth', {
-    //     email,
-    //     password,
-    //   });
-
-    //   const { authStatus, text } = response.data;
-
-    //   if (authStatus) {
-    //     console.error('authenticated');
-    //   } else if (text) {
-    //     console.error(text);
-    //   }
-    // } catch (e) {
-    //   console.error(e);
-    // }
-
+  const login = async (email: string, password: string): Promise<void> => {
     const response = await axios.post<{ accessToken: string; user: User }>(
       '/api/authentication/login',
       {
@@ -174,11 +146,9 @@ export const AuthProvider = (props: AuthProviderProps) => {
         password,
       }
     );
-
     const { accessToken, user } = response.data;
 
     setSession(accessToken);
-
     dispatch({
       type: 'LOGIN',
       payload: {

@@ -1,5 +1,6 @@
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import 'nprogress/nprogress.css';
+import './__mocks__';
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import { HelmetProvider } from 'react-helmet-async';

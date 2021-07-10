@@ -19,6 +19,7 @@
     "@types/react-dom": "^17.0.0",
     "apexcharts": "^3.27.3",
     "axios": "^0.21.1",
+    "axios-mock-adapter": "^1.19.0",
     "formik": "^2.2.9",
     "history": "^5.0.0",
     "lodash": "^4.17.21",
