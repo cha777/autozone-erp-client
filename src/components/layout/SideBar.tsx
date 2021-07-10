@@ -20,6 +20,7 @@ import UsersIcon from '../../icons/Users';
 import Logo from '../Logo';
 import NavSection from './navigation/NavSection';
 import Scrollbar from '../Scrollbar';
+import useAuth from '../../hooks/useAuth';
 
 interface SideBarProps {
   onMobileClose: () => void;
@@ -113,11 +114,7 @@ const SideBar = (props: SideBarProps) => {
 
   const { onMobileClose, openMobile } = props;
   const location = useLocation();
-  const user = {
-    name: 'Chathuranga',
-    role: 'Admin',
-    avatar: '',
-  };
+  const { user } = useAuth();
 
   useEffect(() => {
     if (openMobile && onMobileClose) {
